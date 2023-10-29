@@ -4,8 +4,8 @@ This small repository is my first attempt to create my own web development envir
 
 This setup contains the following containers:
 
-- nginx:alpine (As document server)
-- php-fpm configuration (As php server)
+- nginx:alpine
+- php:fpm-alpine
 
 This both containers are linked through the default configurations. Every php file which will be called via nginx will be interpreted by php-fpm
 
