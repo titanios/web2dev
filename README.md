@@ -12,10 +12,10 @@ This both containers are linked through the default configurations. Every php fi
 You can also directly call php-fpm with the following lines:
 
 ```
-SCRIPT_NAME=your-file.php \
-SCRIPT_FILENAME=./src/your-file.php \
+SCRIPT_NAME=<your-file.php> \
+SCRIPT_FILENAME=<./src/your-file.php> \
 REQUEST_METHOD=GET \
-cgi-fcgi -bind -connect 172.20.0.3:9000
+cgi-fcgi -bind -connect <your-ip:9000>
 ```
 To execute this command you have to install:
 
