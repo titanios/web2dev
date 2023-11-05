@@ -1,4 +1,4 @@
-version: '3.9'
+version: '1.0'
 name: 'docker-web-dev-environment'
 
 services:
@@ -7,9 +7,9 @@ services:
     ports:
       - '8080:80'
     volumes:
-      - ~/BottleByte/Strandbutze:/var/www/html
+      - ~/your/path:/var/www/html
       - ./default.conf:/etc/nginx/conf.d/default.conf
   php-fpm:
     build: './docker/php-fpm'
     volumes:
-      - ~/BottleByte/Strandbutze:/var/www/html
+      - ~/your/path:/var/www/html
