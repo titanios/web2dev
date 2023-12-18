@@ -1,6 +1,6 @@
 Docker Web-Dev Environment
 --------------------------
-This small repository is my first attempt to create my own web development environment under docker.
+This small repository is my first attempt to create my own web development environment using docker.
 
 This setup contains the following containers:
 
