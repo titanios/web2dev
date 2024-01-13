@@ -1,6 +1,6 @@
 Docker Web-Dev Environment
 --------------------------
-This small repository is my first attempt to create my own web development environment using docker.
+A small docker container for your local dev environment, containing latest nginx & php-fpm alpine image. It's easy to handle, so you can focus on your application.
 
 This setup contains the following containers:
 
