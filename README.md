@@ -1,13 +1,13 @@
-Docker Web-Dev Environment
+Docker Web2Dev Environment
 --------------------------
-This small repository is my first attempt to create my own web development environment using docker.
+A small docker container for your local dev environment, containing latest nginx & php-fpm alpine image. It's easy to handle, so you can focus on your application.
 
-This setup contains the following containers:
+This setup contains the following images:
 
 - nginx:alpine
 - php:fpm-alpine
 
-This both containers are linked through the default configurations. Every php file which will be called via nginx will be interpreted by php-fpm
+This both images are linked through the default configurations. Every php file which will be called via nginx will be interpreted by php-fpm.
 
 ### Installation
 
