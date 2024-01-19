@@ -1,3 +1,4 @@
+FROM surnet/alpine-wkhtmltopdf:3.19.0-0.12.6-small as wkhtmltopdf
 FROM php:fpm-alpine
 
 # ADD ./php-fpm-additional.conf /usr/local/etc/php/conf.d
@@ -10,12 +11,16 @@ ENV PHP_OPCACHE_ENABLE="0" \
     PHP_OPCACHE_MEMORY_CONSUMPTION="192" \
     PHP_OPCACHE_MAX_WASTED_PERCENTAGE="10"
 
-RUN apk update && apk upgrade && apk add icu-dev libxml2-dev \
+RUN apk update && apk upgrade && apk add --no-cache icu-dev fontconfig \
+    && apk add --no-cache libxrender libxext libxml2-dev libx11 libssl3 \
     && docker-php-ext-install mysqli pdo pdo_mysql \
     && docker-php-ext-install opcache \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
     && docker-php-ext-install xml dom
+
+# Copy wkhtmltopdf files from docker-wkhtmltopdf image
+COPY --from=wkhtmltopdf /bin/wkhtmltopdf /bin/wkhtmltopdf
 
 # If necessary you can install composer
 # RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
