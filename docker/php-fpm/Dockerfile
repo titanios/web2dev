@@ -11,16 +11,21 @@ ENV PHP_OPCACHE_ENABLE="0" \
     PHP_OPCACHE_MEMORY_CONSUMPTION="192" \
     PHP_OPCACHE_MAX_WASTED_PERCENTAGE="10"
 
-RUN apk update && apk upgrade && apk add --no-cache icu-dev fontconfig \
+RUN apk update && apk upgrade && apk add --no-cache icu-dev \
     && apk add --no-cache libxrender libxext libxml2-dev libx11 libssl3 \
+    && apk add --no-cache fontconfig freetype ttf-dejavu ttf-droid ttf-freefont ttf-liberation \
     && docker-php-ext-install mysqli pdo pdo_mysql \
     && docker-php-ext-install opcache \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
     && docker-php-ext-install xml dom
 
-# Copy wkhtmltopdf files from docker-wkhtmltopdf image
+# Copy wkhtmltopdf files from docker-wkhtmltopdf
 COPY --from=wkhtmltopdf /bin/wkhtmltopdf /bin/wkhtmltopdf
+COPY --from=wkhtmltopdf /bin/libwkhtmltox* /bin/
 
 # If necessary you can install composer
 # RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Clean up when done
+RUN rm -rf /tmp/*
