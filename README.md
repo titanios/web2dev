@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="Web2DevLogo.jpeg" style="width: 40%;" />
+</p>
+
+
 Docker Web2Dev Environment
 --------------------------
 A small docker container for your local dev environment, containing latest nginx & php-fpm alpine image. It's easy to handle, so you can focus on your application.
