@@ -1,5 +1,14 @@
-version: '1.0'
+version: '1.1'
 name: 'docker-web-dev-environment'
+
+volumes:
+  volume_data:
+    name: <your-volume-name>
+    driver: local
+    driver_opts:
+      type: none
+      device: <path-to-your-source>
+      o: bind
 
 services:
   nginx:
@@ -7,9 +16,10 @@ services:
     ports:
       - '8080:80'
     volumes:
-      - ~/your/path:/var/www/html
+      - volume_data:/var/www/html
       - ./default.conf:/etc/nginx/conf.d/default.conf
   php-fpm:
     build: './docker/php-fpm'
     volumes:
-      - ~/your/path:/var/www/html
+      - ./docker/php-fpm/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
+      - volume_data:/var/www/html
