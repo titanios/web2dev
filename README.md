@@ -5,7 +5,7 @@
 
 Docker Web2Dev Environment
 --------------------------
-A small docker container for your private/local dev environment, containing latest nginx & php-fpm alpine image. It's easy to handle, so you can focus on your application.
+A small docker environment for your private/local dev host, containing latest nginx & php-fpm alpine image. It's easy to handle, so you can focus on your application.
 
 This setup contains the following images:
 
