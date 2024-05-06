@@ -12,15 +12,15 @@ ENV PHP_OPCACHE_ENABLE="0" \
     PHP_OPCACHE_MAX_WASTED_PERCENTAGE="10"
 
 RUN apk update && apk upgrade && apk add --no-cache git icu-dev libzip-dev pcre-dev build-base autoconf php-pear zip \
-    && pear config-set php_ini /usr/local/etc/php/php.ini-development \
-    && pear install oauth \
+    && pear config-set php_ini /usr/local/etc/php/conf.d/docker-fpm.ini \
+    && pecl install oauth \
     && apk add --no-cache libxrender libxext libxml2-dev libx11 libssl3 \
     && apk add --no-cache fontconfig freetype ttf-dejavu ttf-droid ttf-freefont ttf-liberation \
     && docker-php-ext-install mysqli pdo pdo_mysql \
     && docker-php-ext-install opcache \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
-    && docker-php-ext-install xml dom zip \
+    && docker-php-ext-install xml dom zip
 
 # Copy wkhtmltopdf files from docker-wkhtmltopdf
 COPY --from=wkhtmltopdf /bin/wkhtmltopdf /bin/wkhtmltopdf
