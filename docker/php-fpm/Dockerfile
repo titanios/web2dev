@@ -13,7 +13,7 @@ ENV PHP_OPCACHE_ENABLE="0" \
 
 RUN apk update && apk upgrade && apk add --no-cache git icu-dev libzip-dev pcre-dev build-base autoconf php-pear zip \
     && pear config-set php_ini /usr/local/etc/php/conf.d/docker-fpm.ini \
-    && pecl install oauth \
+#    && pecl install oauth \
     && apk add --no-cache libxrender libxext libxml2-dev libx11 libssl3 \
     && apk add --no-cache fontconfig freetype ttf-dejavu ttf-droid ttf-freefont ttf-liberation \
     && docker-php-ext-install mysqli pdo pdo_mysql \
