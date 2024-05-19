@@ -24,6 +24,8 @@ After this, run the following command:
 docker compose up
 ```
 
+#### Optional
+
 You can also directly call php-fpm with the following lines:
 
 ```
@@ -37,3 +39,5 @@ To execute this command you have to install:
 ```
 apt-get install libfcgi0ldbl
 ```
+
+If you need a smtp server for sending mails in your dev environment, uncomment the smtp lines in your docker-compose file. Dont'forget to configure the docker gateway for your smtp path.
