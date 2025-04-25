@@ -3,11 +3,11 @@ name: 'docker-web-dev-environment'
 
 volumes:
   volume_data:
-    name: <your-volume-name>
+    name: Talentschmiede
     driver: local
     driver_opts:
       type: none
-      device: <path-to-your-source>
+      device: /home/tschroeder/devspace/softwareschmiede/talentschmiede
       o: bind
 #  smtp4dev-data:
 
