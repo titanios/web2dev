@@ -20,6 +20,7 @@ RUN apk update && apk upgrade && apk add --no-cache git icu-dev libzip-dev pcre-
     && docker-php-ext-install opcache \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
+    && docker-php-ext-install xsl \
     && docker-php-ext-install xml dom zip
 
 # Copy wkhtmltopdf files from docker-wkhtmltopdf
